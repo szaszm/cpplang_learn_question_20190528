@@ -1,22 +1,14 @@
-#include <string>
 #include <memory>
 
+// #include "Bar.h" // Comment this out for forward declaration
 
-namespace A::B::D {
-class Baz;
-} // namespace A::B::D
-
-namespace A::B::C {
-class Bar;
-class Foo_I {};
-class Foo : public Foo_I
+class Bar; // Un-comment for forward declaration
+class Foo
 {
 public:
-	Foo(std::string s, uint16_t p);
+	Foo();
 	~Foo();
 
 private:
-	std::unique_ptr<D::Baz> m_db{ nullptr }; // this is ok
-	std::unique_ptr<Bar> m_bar{ nullptr }; // this gives error
+	std::unique_ptr<Bar> m_bar{ nullptr };
 };
-} // namespace A::B::C

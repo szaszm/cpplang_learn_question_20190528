@@ -1,10 +1,12 @@
 #include "Foo.h"
-#include "Bar.h"
-#include "Baz.h"
 
-namespace A::B::C
+#include <memory>
+
+#include "Bar.h"
+
+Foo::Foo()
 {
-Foo::~Foo() = default;
+    m_bar = std::make_unique<Bar>();    
 }
 
-int main(){}
+Foo::~Foo() = default;
